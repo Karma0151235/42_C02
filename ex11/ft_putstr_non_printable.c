@@ -46,6 +46,7 @@ void	ft_putstr_non_printable(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] >= 32 && str[i] <= 126)
+			ft_putchar('\');
 			ft_putchar(str[i]);
 		else
 			ft_putchar(ft_conversion(str[i]));
