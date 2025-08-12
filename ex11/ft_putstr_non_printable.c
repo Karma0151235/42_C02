@@ -18,24 +18,13 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-char	*ft_conversion(int input)
+void	ft_printhexa(unsigned char input)
 {
-	int	temp;
-	int	i;
-	char	*output;
-	
-	i = 1;
-	temp = input % 16;
-	if (temp < 10)
-		temp += 48;
-	else
-		temp += 55;
-	while (output[i])
-	{
-		output[i] = temp;
-		i++;
-	}
-	return (output);
+	char	*base16;
+
+	base16 = "012345678abcdef";
+	ft_putchar(base16[input/16]);
+	ft_putchar(base16[input%16]);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -46,10 +35,12 @@ void	ft_putstr_non_printable(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] >= 32 && str[i] <= 126)
-			ft_putchar('\');
 			ft_putchar(str[i]);
 		else
-			ft_putchar(ft_conversion(str[i]));
+		{
+			ft_putchar('\\');
+			ft_printhexa(str[i]);
+		}
 		i++;
 	}
 	return (0);
