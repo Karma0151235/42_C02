@@ -43,14 +43,4 @@ void	ft_putstr_non_printable(char *str)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	main(void)
-{
-
-	char	str[] = "this is not \n printable ? 234";
-	
-	ft_putstr_non_printable(str);
-	return 0;
 }
